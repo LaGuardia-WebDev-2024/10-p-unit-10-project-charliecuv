@@ -1,30 +1,126 @@
-body {
-  background-image: url("Sprinkles.jpg");
-  background-color: hsl(213, 85%, 92%);
-  background-blend-mode: overlay;
-  text-align: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; 
-  font-family: Georgia, serif;
+var blouse = loadImage("IMG_0992.png"); 
+var character = loadImage("IMG_0993.png"); 
+var sweater = loadImage("IMG_0994.png"); 
+var shirt = loadImage("IMG_0995.png"); 
+var short = loadImage("IMG_0996.png"); 
+var skirt = loadImage("IMG_0997.png"); 
+
+
+var bakeryLabels = ["shirts", "pants"];
+
+var arrowColors = [color(255,0,0), color(254,100,0), color(253,200,0)];
+
+var Colors = [color(256,300,0),color(257,150,0)];
+
+setup = function() {
+
+  size(400, 400); 
+  background(0,0,0,0);
+
+var i = 0;
+  var crossiantX = 200;
+  textSize(30);
+while(crossiantX < 300){  
+
+    fill(arrowColors[i]);
+    text("⤵", crossiantX, 120);
+    ellipse(crossiantX, 120, 20, 20);
+    crossiantX += 40;
+    i ++;
+
+  }
+
+
+  var i = 0;
+  var crossiantX = 200;
+  textSize(30);
+while(crossiantX < 250){  
+
+    fill(Colors[i]);
+    text("⤵", crossiantX, 320);
+    ellipse(crossiantX, 320, 20, 20);
+    crossiantX += 40;
+    i ++;
+
+  }
+
+
+  textSize(15);
+  text(bakeryLabels[0], 300, 105);
+  text(bakeryLabels[1], 300, 285);
+}
+//var statments
+var whiteShirt = 0;
+var pinkSweater = 0;
+var bunnyShirt = 0;
+var pinkskirt = 0;
+var shorties = 0;
+
+//base lines
+draw = function(){
+image(blouse, 60 ,40, 400, 400); 
+image(character, -300 ,-50, 800, 550);
+image(sweater, 90 ,40, 400, 400);
+image(shirt, 120,40, 400, 400);
+image(skirt, 100 ,150, 450, 450);
+image(short, 50 ,150, 450, 450);
+
+
+//stuff to add to the var statements
+
+if(pinkskirt == 1){
+   image(skirt, -117, 35, 432, 370);
 }
 
-html{
-  height: 100%;
-  width: 100%;
+if(shorties== 1){
+   image(short, -117, 35, 432, 360);
+}
+if(whiteShirt == 1){
+    image(blouse, -105, 35, 400, 400);
+}
+if(bunnyShirt == 1){
+   image(shirt, -105, 35, 400, 400);
+}
+if(pinkSweater == 1){
+   image(sweater, -105, 35, 400, 400);
 }
 
-#myCanvas1 {
-  border: 1px solid black;
-  background-image: url("supermarket-interior-shelf_165488-3982.avif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+//you click on shit
+if (mousePressed){
+  console.log("here");
+  if (get(mouseX, mouseY)== color(255,0,0)){
+    whiteShirt = 1;
+    //image(blouse, -300, -300, 700, 550);
+    console.log("iam here");
+  }
+  if (get(mouseX, mouseY)== color(253,200,0)){
+    bunnyShirt = 1;
+    //image(shirt),-105, 35, 400, 400);
+   }
+
+   if (get(mouseX, mouseY)== color(254,100,0)){
+    pinkSweater = 1;
+    //image(sweater,-105, 35, 400, 400);
+   }
+   
+    if (get(mouseX, mouseY)== color(257,150,0)){
+   pinkskirt = 1;
+    //image(skirt,-110, 250, 450, 400);
+   }
+
+    if (get(mouseX, mouseY)==color(256,300,0)){
+   shorties = 1;
+    //image(short,-110, 250, 450, 400);
+   }
+
+}
 }
 
-#myCanvas2 {
-  border: 1px solid black;
-  border-radius: 30px;
-}
 
+mouseClicked = function(){
+
+
+
+}
 
